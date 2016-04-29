@@ -1,5 +1,5 @@
 # QxFresco
-深入浅出的研究Fresco
+深入浅出的研究Fresco--ok，图片下载，缓存，图片移除都是Fresco来处理，是不是很强大
 1.配置环境
 
 由于我用的是android studio所以这里就只是说一下android studio下如何配置，在强大的gradle，只需要一句话搞定，gradle会帮你下载这个Fresco框架，gradle真好，可以自动维护你项目中的框架
