@@ -87,3 +87,117 @@ pressedStateOverlayImage设置点击状态下的叠加图，此叠加图不能�
 ImageScaleType这个就是各种各样的图片缩放样式了，center，centerCrop，fouseCrop，centerInside，fitCenter，fitStart，fitEnd，fitXY
 
 剩下的就是对圆角的处理了…
+
+
+
+前面我们已经使用过SimpleDraweeView这个控件了，显示图片的时候直接写了一个setImageURI（uri），Fresco不仅仅提供了这一个方法来显示图片，它还提供了setController（controller）方法加载图片
+
+DraweeController controller = Fresco.newDraweeControllerBuilder()
+                .setUri(uri)
+                .build();
+        imageView.setController(controller);
+当然如果你想监听加载的过程，就加一个ControllerListen
+
+ControllerListener listener = new BaseControllerListener(){
+            @Override
+            public void onFinalImageSet(String id, Object imageInfo, Animatable animatable) {
+                super.onFinalImageSet(id, imageInfo, animatable);
+            }
+
+            @Override
+            public void onFailure(String id, Throwable throwable) {
+                super.onFailure(id, throwable);
+            }
+
+            @Override
+            public void onIntermediateImageFailed(String id, Throwable throwable) {
+                super.onIntermediateImageFailed(id, throwable);
+            }
+        };
+        DraweeController controller = Fresco.newDraweeControllerBuilder()
+                .setUri(uri)
+                .setControllerListener(listener)
+                .build();
+        imageView.setController(controller);
+图片加载成功或者失败，会执行里面的方法，其中图片加载成功时会执行onFinalImageSet方法，图片加载失败时会执行onFailure方法，如果图片设置渐进式，onIntermediateImageFailed会被回调
+
+说完了如何加载uri之后，如何实现在xml中的效果呢？我们继续在java代码中实现xml的效果
+
+GenericDraweeHierarchy hierarchy = new GenericDraweeHierarchyBuilder(getResources())
+                .setFadeDuration(300)
+                .setBackground(getDrawable(R.drawable.ic_launcher))
+                .setPlaceholderImage(getDrawable(R.drawable.ic_launcher))
+                .setFailureImage(getDrawable(R.drawable.ic_launcher))
+                .build();
+        imageView.setHierarchy(hierarchy);
+方法很多，你在xml中用到的都可以在这里设置，有些在xml中不能设置的在这里也是可以的，例如，我可以设置多张背景图片，我可以设置多张叠加图，这里都可以帮你实现，是不是很强大啊，想不想拿到特权了一样呢！但是DraweeHiererchy创建时比较耗时，所以要多次利用
+
+ GenericDraweeHierarchy hierarchy1 = imageView.getHierarchy();
+这个框架不仅仅是这些东西，它还有很多更牛逼的东西，例如：它提供了渐进式加载图片，显示gif动画图片等等
+
+首先是渐进式图片加载，这方面的功能充分考虑了网络比较慢的情况下，用户不至于一致在等，最起码能看到模糊的照片，这个所谓的渐进式加载就是说用户从图片加载之后，图片会从模糊到清晰的一个渐变过程，当然这个过程仅限于从网络加载图片，本地或者缓存等地方的图片也不需要渐进式加载，没有意义
+
+ProgressiveJpegConfig config = new ProgressiveJpegConfig() {
+            @Override
+            public int getNextScanNumberToDecode(int i) {
+                return 0;
+            }
+
+            @Override
+            public QualityInfo getQualityInfo(int i) {
+                return null;
+            }
+        };
+
+        ImagePipelineConfig imagePipelineConfig = ImagePipelineConfig.newBuilder(this)
+                .setProgressiveJpegConfig(config)
+                .build();
+        Fresco.initialize(getApplicationContext(),imagePipelineConfig);
+当然你也可以使用ProgressiveJpegConfig config1= new SimpleProgressiveJpegConfig(list,2);
+FLog.setMinimumLoggingLevel(FLog.VERBOSE);
+        Set<RequestListener> listeners = new HashSet<>();
+        listeners.add(new RequestLoggingListener());
+        ImagePipelineConfig config = ImagePipelineConfig.newBuilder(this)
+                .setRequestListeners(listeners)
+                .build();
+        Fresco.initialize(this, config);
+        setContentView(R.layout.activity_main);
+
+        mProgressiveJpegView = (SimpleDraweeView) findViewById(R.id.my_image_view);
+
+        Uri uri = Uri.parse("http://pooyak.com/p/progjpeg/jpegload.cgi?o=1");
+        ImageRequest request = ImageRequestBuilder.newBuilderWithSource(uri)
+                .setProgressiveRenderingEnabled(true)
+                .build();
+        DraweeController controller = Fresco.newDraweeControllerBuilder()
+                .setImageRequest(request)
+                .build();
+        mProgressiveJpegView.setController(controller);
+ImageRequest request = ImageRequestBuilder
+                .newBuilderWithSource(uri)
+                .setProgressiveRenderingEnabled(true)
+                .build();
+        PipelineDraweeController controller = (PipelineDraweeController) Fresco.newDraweeControllerBuilder()
+                .setImageRequest(request)
+                .setOldController(imageView.getController())
+                .build();
+        imageView.setController(controller);
+哎吆，不错哦，可是这个image pipeline这个又是个什么啊？它的来头比较大，负责图片的加载工作
+
+1.检查内存缓存，如有，返回
+
+2.后台线程开始后续工作
+
+3.检查是否在未解码内存缓存中。如有，解码，变换，返回，然后缓存到内存缓存中。
+
+4.检查是否在文件缓存中，如果有，变换，返回。缓存到未解码缓存和内存缓存中。
+
+5.从网络或者本地加载。加载完成后，解码，变换，返回。存到各个缓存中。
+
+继续看gif图片,其实跟显示图片没什么差，主要是动态图片涉及到的动画的停止与播放，如果只是单纯的试用一下，那就直接在controller里面设置setAutoPlayAnimation为true，如果你想手动监听就new一个ControllerListener里面手动控制
+
+当我们要从服务器端下载一张高清图片，图片比较大，下载很慢的情况下有些服务器会提供一张缩略图，同样的Fresco也支持这种方法，在controller中提供了两个不同的方法setLowResImageRequest和setImageRequest，看到方法名你应该明白了怎么用
+
+个人认为这个框架最巧妙的地方，就是把bitmap保存到ashmen，不会启动gc，使的界面不会因为gc而卡死，Fresco使用三级缓存，第一级缓存就是保存bitmap，第二级缓存保存在内存，但是没有解码，使用时需要界面，第三级缓存就是保存在本地文件，同样文件也未解码，使用的时候要先解码啦！
+
+上面谈到的保存的很多内容都未解码，这也是fresco默认使用3个线程的原因，一个线程用来加载uri，一个线程用来解码，最后一个你知道它做什么，其余你想了解的东西自己去官网找找。
