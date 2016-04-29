@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="/Users/xinran/mygithub/QxFresco/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.2.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="6e3578f92f7462d1a935a1d36173e3bdd1234976">
+        <dex dex="/Users/xinran/mygithub/QxFresco/app/build/intermediates/pre-dexed/debug/classes-54b839b476b4e778e380420b4448120bd58ec2e4.jar" />
+    </item>
+    <item
+        jar="/Users/xinran/.gradle/caches/modules-2/files-2.1/com.jakewharton/butterknife/7.0.1/d5d13ea991eab0252e3710e5df3d6a9d4b21d461/butterknife-7.0.1.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="d5d13ea991eab0252e3710e5df3d6a9d4b21d461">
+        <dex dex="/Users/xinran/mygithub/QxFresco/app/build/intermediates/pre-dexed/debug/butterknife-7.0.1-259ac5c0f13a6b89c7fa41bb4668111f4beb0184.jar" />
+    </item>
+    <item
+        jar="/Users/xinran/mygithub/QxFresco/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/23.2.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="292a9fa091757208efa65e77eef63088247e51f3">
+        <dex dex="/Users/xinran/mygithub/QxFresco/app/build/intermediates/pre-dexed/debug/classes-4c1bfe0fca6a2fc2b203404e4d01ef110b18104b.jar" />
+    </item>
+    <item
+        jar="/Users/xinran/mygithub/QxFresco/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/23.2.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="8c108c22c99e794eff255bb34d2a461200c4cbb0">
+        <dex dex="/Users/xinran/mygithub/QxFresco/app/build/intermediates/pre-dexed/debug/classes-d2b57436e25c1571cb91c2923630e4c587937f64.jar" />
+    </item>
+    <item
+        jar="/Users/xinran/.gradle/caches/modules-2/files-2.1/com.nineoldandroids/library/2.4.0/e9b63380f3a242dbdbf103a2355ad7e43bad17cb/library-2.4.0.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="e9b63380f3a242dbdbf103a2355ad7e43bad17cb">
+        <dex dex="/Users/xinran/mygithub/QxFresco/app/build/intermediates/pre-dexed/debug/library-2.4.0-2723d90e7bdd68cd52a094509e8c5ae8ae49024a.jar" />
+    </item>
+    <item
+        jar="/Users/xinran/android-sdk-macosx/extras/android/m2repository/com/android/support/support-annotations/23.2.0/support-annotations-23.2.0.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="c5bf571bb10462bd90e5419ade67793f71acbc87">
+        <dex dex="/Users/xinran/mygithub/QxFresco/app/build/intermediates/pre-dexed/debug/support-annotations-23.2.0-a8397d4141f959bc470bd8470d91822c27f324d6.jar" />
+    </item>
+    <item
+        jar="/Users/xinran/.gradle/caches/modules-2/files-2.1/com.parse.bolts/bolts-android/1.1.4/129874135e6081269ace2312092031558865de12/bolts-android-1.1.4.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="129874135e6081269ace2312092031558865de12">
+        <dex dex="/Users/xinran/mygithub/QxFresco/app/build/intermediates/pre-dexed/debug/bolts-android-1.1.4-ca2f1a1295de0309596db7a2d0b297aba4074076.jar" />
+    </item>
+    <item
+        jar="/Users/xinran/mygithub/QxFresco/app/build/intermediates/exploded-aar/com.facebook.fresco/fbcore/0.9.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="4ee95617ab850030c51486d02bc9d207b14419c6">
+        <dex dex="/Users/xinran/mygithub/QxFresco/app/build/intermediates/pre-dexed/debug/classes-0b3fd261c7f17d6753beb13e1f82b9cd790f4de5.jar" />
+    </item>
+    <item
+        jar="/Users/xinran/mygithub/QxFresco/app/build/intermediates/exploded-aar/com.facebook.fresco/imagepipeline-base/0.9.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="39bd9f893c75eac9e76559cc4e96af6e417afdc5">
+        <dex dex="/Users/xinran/mygithub/QxFresco/app/build/intermediates/pre-dexed/debug/classes-755d7b076752555062e8ed24e5c01eaa67dfb8da.jar" />
+    </item>
+    <item
+        jar="/Users/xinran/mygithub/QxFresco/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.2.0/jars/libs/internal_impl-23.2.0.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="6e239441500605809818997dd63b62a947195f8c">
+        <dex dex="/Users/xinran/mygithub/QxFresco/app/build/intermediates/pre-dexed/debug/internal_impl-23.2.0-15b77e4b3080ee51cf594865dc5185e0c6453aef.jar" />
+    </item>
+    <item
+        jar="/Users/xinran/mygithub/QxFresco/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.2.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="e5f32fa48a3eb2de0c987025c11b6e3864b634d9">
+        <dex dex="/Users/xinran/mygithub/QxFresco/app/build/intermediates/pre-dexed/debug/classes-f67afd33f93eba4bad72aa133e518251bf27448d.jar" />
+    </item>
+    <item
+        jar="/Users/xinran/mygithub/QxFresco/app/build/intermediates/exploded-aar/com.facebook.fresco/drawee/0.9.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="3158c15bb0ae97575debdb40cfcd8f0f9f244526">
+        <dex dex="/Users/xinran/mygithub/QxFresco/app/build/intermediates/pre-dexed/debug/classes-417d8fe48a56aaf5a17e9ccd0e1df1db3cd7be45.jar" />
+    </item>
+    <item
+        jar="/Users/xinran/mygithub/QxFresco/app/build/intermediates/exploded-aar/com.facebook.fresco/imagepipeline/0.9.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="57528b5deee77bfa2188fc279fd45066366f17f5">
+        <dex dex="/Users/xinran/mygithub/QxFresco/app/build/intermediates/pre-dexed/debug/classes-324b14940be040a2d7092559c6008ae072ad5f83.jar" />
+    </item>
+    <item
+        jar="/Users/xinran/mygithub/QxFresco/app/build/intermediates/exploded-aar/com.facebook.fresco/fresco/0.9.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="ca51025f4a58fc7fb6cfaa85e7d09b7ae47e6187">
+        <dex dex="/Users/xinran/mygithub/QxFresco/app/build/intermediates/pre-dexed/debug/classes-21851411e34737dea82204ca3e014d7a7b196bc7.jar" />
+    </item>
+
+</items>
