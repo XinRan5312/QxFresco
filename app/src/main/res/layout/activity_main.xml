@@ -16,7 +16,6 @@ imageView.setAspectRatio(1.0f)-->
     <com.facebook.drawee.view.SimpleDraweeView
         android:id="@+id/image_view"
         android:layout_width="30dp"
-        android:layout_height="30dp"
-        fresco:placeholderImage="@mipmap/ic_launcher"/>
+        android:layout_height="30dp" />
 
 </RelativeLayout>
